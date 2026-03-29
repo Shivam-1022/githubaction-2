@@ -1,0 +1,29 @@
+name: Multiple Commands Workflow
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  run-multiple-commands:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Step 2: Create a new folder
+      - name: Create new folder
+        run: mkdir files
+
+      # Step 3: Show files in repo
+      - name: List files
+        run: ls -la
+
+      # Step 4: Run multiple commands together
+      - name: Run multiple commands
+        run: |
+          echo "Hello from GitHub Actions!"
+          pwd
+          whoami
